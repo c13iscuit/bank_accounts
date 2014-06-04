@@ -17,15 +17,13 @@ def build_data(file)
 end
 
 class BankTransaction
-  def initialize(args)
-    @args = args
-  end
 
   def deposit?(amount)
     if amount.to_i > 0
       true
     else
       false
+    end
   end
 
   def summary
@@ -35,9 +33,6 @@ class BankTransaction
 end
 
 class BankAccount
-  def initilize(args)
-    @args = args
-  end
 
   def starting_balance
     #that returns the starting balance loaded from the file
