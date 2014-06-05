@@ -1,1 +1,19 @@
-<h1>hello</h1>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styling.css">
+</head>
+<body>
+
+<%@accounts.each do |account|%>
+  <p>Account: <%=account.account%></p>
+  <p>Starting Balance: $<%=account.starting_balance.to_f%></p>
+  <p>Ending Balance: $<%=account.current_balance.to_f%></p>
+  <div class = "transactions">
+  <%account.summary(account.account).each do |line|%>
+  <p><%=line%></p>
+  <%end%>
+  </div>
+<%end%>
+
+</body>
+</html>
