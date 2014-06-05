@@ -5,14 +5,16 @@
 <body>
 
 <%@accounts.each do |account|%>
-  <p>Account: <%=account.account%></p>
-  <p>Starting Balance: $<%=account.starting_balance.to_f%></p>
-  <p>Ending Balance: $<%=account.current_balance.to_f%></p>
+  <p>== Account: <%=account.account%> ==</p>
+  <p>Starting Balance: $<%="%.2f" % account.starting_balance.to_f%></p>
+  <p>Ending Balance: $<%="%.2f" % account.current_balance.to_f%></p>
   <div class = "transactions">
-  <%account.summary(account.account).each do |line|%>
-  <p><%=line%></p>
-  <%end%>
+    <%account.summary(account.account).each do |line|%>
+      <p><%=line%></p>
+    <%end%>
   </div>
+  <br>
+  <hr>
 <%end%>
 
 </body>
